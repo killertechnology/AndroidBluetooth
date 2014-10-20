@@ -1,5 +1,7 @@
 package com.example.compliancekiosk;
 
+import java.io.IOException;
+
 import com.example.compliancekiosk.util.SystemUiHider;
 
 import android.annotation.TargetApi;
@@ -12,9 +14,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -59,45 +64,22 @@ public class Activity1 extends Activity {
     VideoView vid;
     MediaController mc;
     
-    
-    
-	
-    
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_activity1);
-        //addButtonClickEventListener();
-        
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
+                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	        
-	    vid = (VideoView) findViewById(R.id.videoView1);
-	    mc = new MediaController(this);
-	    
-        String urlpath = "android.resource://"+ getPackageName() + "/" + R.raw.baileys_5sec;
-        vid.setVideoURI(Uri.parse(urlpath));
-     
-       
-        
-		//context = this;
-        vid.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { 
-        	public  void  onCompletion(MediaPlayer mc) { 
-        	 	vid.setVisibility(0);
-        	 	Intent intent = new Intent(Activity1.this, Activity2.class);
-        	 	startActivity(intent);
-        	             	
-            }
-
-			
-        }); 
-        
-        vid.start(); 
+        Intent intent = new Intent(Activity1.this, Activity2.class);
+  	 	startActivity(intent);
         
         
         
-        
-        final View controlsView = findViewById(R.id.fullscreen_content_controls);
+       // final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
 
         // Set up an instance of SystemUiHider to control the system UI for
@@ -113,7 +95,8 @@ public class Activity1 extends Activity {
                     @Override
                     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
                     public void onVisibilityChange(boolean visible) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+                        /*
+                    	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
                             // If the ViewPropertyAnimator API is available
                             // (Honeycomb MR2 and later), use it to animate the
                             // in-layout UI controls at the bottom of the
@@ -139,6 +122,7 @@ public class Activity1 extends Activity {
                             // Schedule a hide().
                             delayedHide(AUTO_HIDE_DELAY_MILLIS);
                         }
+                        */
                     }
                 });
 
@@ -157,7 +141,6 @@ public class Activity1 extends Activity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
         
         
         

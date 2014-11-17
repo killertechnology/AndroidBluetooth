@@ -1,26 +1,15 @@
 package com.example.compliancekiosk;
 
-import java.io.IOException;
-
 import com.example.compliancekiosk.util.SystemUiHider;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
-
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -159,7 +148,7 @@ public class Activity1 extends Activity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        delayedHide(100);
+        //delayedHide(100);
     }
 
 

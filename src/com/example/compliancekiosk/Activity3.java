@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,7 +24,7 @@ public class Activity3 extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		Log.d("ACTIVITY2", "Starting Video");
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.getWindow().setFlags(
@@ -42,15 +43,16 @@ public class Activity3 extends Activity {
 		 
 		String strVideoURL = getIntent().getExtras().getString("videoURL");
 
-		String urlpath = "";//"android.resource://"+ getPackageName() + "/" + R.raw.baileys_5sec;
-		//String urlpath = "http://staging.vwffweeklypicks.com/media/weeklypick/images/baileys_5sec.mp4";
-		urlpath = strVideoURL;
 		final VideoView vid = (VideoView) findViewById(R.id.videoView1);
 		MediaController mc = new MediaController(this);
 		mc.setVisibility(View.GONE);
 		mc.setAnchorView(vid);
-		Uri video = Uri.parse(urlpath);
+		
+		Uri video = Uri.parse(strVideoURL);
+		
+		//comment out to turn off controls
 		//vid.setMediaController(mc);
+		
 		vid.setVideoURI(video);
       
  
@@ -62,6 +64,8 @@ public class Activity3 extends Activity {
 	      	 	Intent intent = new Intent(Activity3.this, Activity2.class);
 	      	 	startActivity(intent);
 	      	 	*/
+	    		Log.d("ACTIVITY2", "Video finished! - returning to activity 2");
+	    		
 	      		finish();
 	          }
 	      }); 

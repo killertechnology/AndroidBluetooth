@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@color/black_overlay"
     tools:context=".Activity1" >
 
     <!--
@@ -33,18 +33,16 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true" >
 
-       
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="676dp"
+            android:layout_height="437dp"
             android:orientation="horizontal" >
 
             <VideoView
                 android:id="@+id/videoView1"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-
-          
+                android:layout_height="match_parent"
+                android:padding="10dp" />
 
         </LinearLayout>
 

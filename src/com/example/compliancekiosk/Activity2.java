@@ -189,7 +189,9 @@ public class Activity2 extends Activity {
             	Intent intent = new Intent(Activity2.this, Activity3.class);                                            	
             	//intent.putExtra("videoURL",videoURL);
         	 	startActivity(intent);
+        	 	
             }
+        	
         	
             public void run()
             {
@@ -199,6 +201,7 @@ public class Activity2 extends Activity {
                {
                     try 
                     {
+                    	
                     	int bytesAvailable = mmInputStream.available();                        
                         if(bytesAvailable > 0)
                         {
@@ -220,6 +223,7 @@ public class Activity2 extends Activity {
                                     _finalCount++;
                                     readBufferPosition = 0;
                                     
+                                    
                                     handler.post(new Runnable()
                                     {
 										public void run()
@@ -231,7 +235,9 @@ public class Activity2 extends Activity {
 												try {
 														if (Activity2._isVidPlaying == 0){
 															
-															incomingRFID = serialReader.replace("plays a video\n\r\nRFID FOUND|", "").replace("\n","").replace("\r", "");
+															incomingRFID = serialReader.replace("plays a video\n\r\nRFID FOUND|", "").replace("\n","");
+															incomingRFID = incomingRFID.replace("\r", "");
+															
 															//incomingRFID = incomingRFID.substring(0,(incomingRFID.indexOf("\n")));
 															Log.d("ACTIVITY 2", "1 EXTRACTING NEW RFID:-->" + incomingRFID + "!");
 

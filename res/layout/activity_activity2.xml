@@ -7,21 +7,39 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    
     tools:context=".Activity2" >
+<!-- android:keepScreenOn="true" -->
 
      <TextView
          android:id="@+id/textView2"
          android:layout_width="150dp"
          android:layout_height="400dp"
-         />
+         android:layout_alignParentLeft="true"
+         android:layout_alignTop="@+id/webView1" />
 
      <WebView
          android:id="@+id/webView1"
          android:layout_width="750dp"
          android:layout_height="700dp"
+         android:layout_alignParentBottom="true"
          android:layout_alignParentRight="true"
          android:layout_alignParentTop="true"
          android:layout_toRightOf="@+id/textView2" />
 
+     <VideoView
+         android:id="@+id/videoView1"
+         android:layout_width="1080dp"
+         android:layout_height="900dp"
+         android:layout_toRightOf="@+id/textView2" />
+
+     <Button
+         android:id="@+id/button1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/webView1"
+         android:layout_alignParentLeft="true"
+         android:onClick="onClick"
+         android:text="GoGetBT" />
     
 </RelativeLayout>

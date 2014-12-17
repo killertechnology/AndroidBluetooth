@@ -152,30 +152,24 @@ public class Activity3 extends Activity {
 	    	super.onPostExecute(result);
 	    	if (result!=null){
 	    	
-	    	_myVideoURL = result.replace("\n", "");
-	    	_myVideoURL = _myVideoURL.substring(0,(_myVideoURL.indexOf("|")));
-	    	
-	    	_mySessionID = result.replace(_myVideoURL, "");
-	    	_mySessionID = _mySessionID.replace("|", "").replace("\n", "");
-	    	if (_mySessionID!=null){
-	    		Activity2._sessionID = _mySessionID;
-	    		Log.d("ACTIVITY 3", "SESSION IDENTIFIED - " + _mySessionID + "!");
-	    		try {
-					Thread.sleep(100);
-					//myLabel.setText(_myVideoURL);
-					Uri video = Uri.parse(_myVideoURL);
+		    	_myVideoURL = result.replace("\n", "");
+		    	_myVideoURL = _myVideoURL.substring(0,(_myVideoURL.indexOf("|")));
+		    	
+		    	_mySessionID = result.replace(_myVideoURL, "");
+		    	_mySessionID = _mySessionID.replace("|", "").replace("\n", "");
+		    	if (_mySessionID!=null){
+		    		Activity2._sessionID = _mySessionID;
+		    		Log.d("ACTIVITY 3", "SESSION IDENTIFIED - " + _mySessionID + "!");
+		    		Uri video = Uri.parse("android.resource://com.example.compliancekiosk/raw/handwashingpart2");
+					
+					
+					//Uri video = Uri.parse(_myVideoURL);
 					
 					//comment out to turn off controls
 					videoViewVid1.setMediaController(mc1);
 					videoViewVid1.setVideoURI(video);
 					videoViewVid1.start();
-					
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					Log.d("ACTIVITY 3", "SESSION KILLED - " + _mySessionID + "!");
-					e.printStackTrace();
-				}
-	    	}
+		    	}
 		  	
 	    	}
 	    }

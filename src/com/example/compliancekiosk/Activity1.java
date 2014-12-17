@@ -7,10 +7,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 /**
@@ -63,9 +67,23 @@ public class Activity1 extends Activity {
                 WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	        
+        
         Intent intent = new Intent(Activity1.this, Activity2.class);
   	 	startActivity(intent);
-        
+  	 	/*
+        Button button = (Button) findViewById(R.id.button1);
+
+		button.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				//Log.d("ACTIVITY 3", "BUTTON CLICKED!");
+				Intent intent = new Intent(Activity1.this, Activity2.class);
+		  	 	startActivity(intent);
+			}
+
+		});
+        */
         
         
        // final View controlsView = findViewById(R.id.fullscreen_content_controls);
@@ -77,10 +95,6 @@ public class Activity1 extends Activity {
         mSystemUiHider.setup();
         mSystemUiHider
                 .setOnVisibilityChangeListener(new SystemUiHider.OnVisibilityChangeListener() {
-                    // Cached values.
-                    int mControlsHeight;
-                    int mShortAnimTime;
-
                     @Override
                     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
                     public void onVisibilityChange(boolean visible) {
@@ -145,6 +159,8 @@ public class Activity1 extends Activity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        
+  	 	
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.

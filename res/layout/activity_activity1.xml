@@ -26,6 +26,12 @@
          This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows.
     -->
-        
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="CLICK" />
 
 </FrameLayout>

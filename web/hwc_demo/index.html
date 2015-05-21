@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		
+		
+		<script type="text/javascript" charset="utf-8">
+		var name="name not set";
+		
+		function promptuser(){
+			name=prompt("Please enter your name","");
+			if (name!=null && name!="")
+			  {
+			  //x="Hello " + name + "! How are you today?";
+			  //alert(x);
+			  //document.write(x);
+			 
+			 //turn the left box grey
+			  //document.getElementById("hellocontainer").innerHTML="this box is grey";
+			  //document.getElementById("hellocontainer").style.backgroundColor = "grey";
+			  
+			  
+			  $("hellocontainer").html('this box is grey');
+			  
+			  
+			  
+			  
+			 //turn the right box yellow
+			  document.getElementById("goodbyecontainer").style.backgroundColor= "yellow";
+			  document.getElementById("goodbyecontainer").innerHTML="this box is yellow";
+			  
+			 //turn the first row orange 
+			  document.getElementById("hellorow").style.backgroundColor= "orange";
+			  
+			  }
+		}
+		
+		function usemyname(){
+			
+			document.getElementById("mybox").innerHTML="this is "+name+"'s Box";
+			
+			alert("My name is "+name);
+			
+					}
+		
+			
+		</script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>index</title>
+		<meta name="author" content="kevin.fessler" />
+		<!-- Date: 2013-03-09 -->
+	</head>
+	<body>
+
+
+
+		
+		
+<table border="1" style="width: 600px;height: 500px;">
+	
+	
+<tr id="hellorow">
+<td><a href="javascript:promptuser();">I'm Alive! </a></td>
+<td id="mybox" ></td>
+</tr>
+
+<hr width="300">
+
+<tr>
+<td id="hellocontainer"><div id="Hellodiv">&nbsp;</div></td>
+<td onclick="javascript:usemyname();" id="goodbyecontainer" style="width: 300px;">&nbsp;</td>
+</tr>
+
+
+</table>		
+		
+		
+		
+		</body>
+		
+		
+		
+</html>
+

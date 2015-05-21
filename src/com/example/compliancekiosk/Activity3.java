@@ -43,45 +43,8 @@ public class Activity3 extends Activity {
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
-        this.getWindow().setFlags(
-				 WindowManager.LayoutParams.FLAG_FULLSCREEN | 
-				 WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | 
-				 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | 
-				 WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
-	             WindowManager.LayoutParams.FLAG_FULLSCREEN | 
-	             WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | 
-	             WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | 
-	             WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-
-        videoViewVid1 = (VideoView) findViewById(R.id.videoView1);
-		//myLabel = (TextView)findViewById(R.id.textView1);
-		
-		mc1 = new MediaController(this);
-		mc1.setVisibility(View.GONE);
-		mc1.setAnchorView(videoViewVid1);
-		
-        if (Activity2._sessionRFID!=null){
-        	
-        	if (Activity2._sessionRFID.length()>0){
-        		String strVideoURL = "http://www.popordrop.com/insert.php?rfid_id=" + Activity2._sessionRFID;// getIntent().getExtras().getString("videoURL");
-    			Activity2._isVidPlaying = 1;
-    			GetData obj = new GetData();
-    			obj.execute(strVideoURL);
-        	}
-			
-        }
-        
-        videoViewVid1.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { 
-	    	public  void  onCompletion(MediaPlayer mc) { 
-	      	 	
-	    		Log.d("ACTIVITY 3", "Video finished! - returning to activity 2");
-	    		Activity2._isVidPlaying = 0;
-	    		Activity2._sessionRFID=null;
-	    		closeActivity();
-	          }
-	      }); 
+      
 	}
-
 	
 	protected void closeActivity() {
 		// TODO Auto-generated method stub
